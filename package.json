@@ -1,0 +1,24 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "Intelligent agent for automated note generation in Obsidian vaults",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrandonDFairbanks/obsidian-vault-agent.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/BrandonDFairbanks/obsidian-vault-agent/issues"
+  },
+  "homepage": "https://github.com/BrandonDFairbanks/obsidian-vault-agent#readme"
+}
