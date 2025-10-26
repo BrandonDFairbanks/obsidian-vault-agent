@@ -2,6 +2,12 @@
 // Basic Express server for Note Generation API
 
 require('dotenv').config();
+// Verify required environment variables are present
+if (!process.env.CLAUDE_API_KEY) {
+  console.error('❌ ERROR: CLAUDE_API_KEY is not set in .env file');
+  console.error('Please add your Claude API key to the .env file');
+  process.exit(1);
+}
 const claudeService = require('./services/claude');
 const express = require('express');
 const cors = require('cors');
