@@ -89,6 +89,25 @@ app.post('/api/test-claude', async (req, res) => {
   }
 });
 
+// ============================================
+// Claude Integration Test Endpoint
+// ============================================
+// Temporary endpoint to verify Claude API works end-to-end
+// Tests: server → dotenv → claude service → API call → response
+// Remove before production
+app.post('/api/test-claude', async (req, res) => {
+  try {
+    // Call Claude with hardcoded test prompt
+    const result = await claudeService.generateContent('Write a haiku about backend development');
+    
+    // Return whatever the service gave us (already formatted as { success, content } or { success, error })
+    res.json(result);
+  } catch (error) {
+    // Catch any errors the service didn't handle
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`🚀 Note Generation API running on http://localhost:${PORT}`);

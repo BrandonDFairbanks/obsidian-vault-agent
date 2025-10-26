@@ -45,11 +45,19 @@ class ClaudeService {
         ]
       });
 
+      // ← ADD THE NEW LINE HERE (right after the API call)
+      console.log(`📊 Claude API usage - Input: ${message.usage.input_tokens} tokens, Output: ${message.usage.output_tokens} tokens, Total: ${message.usage.input_tokens + message.usage.output_tokens}`);
+
       // Extract text from Claude's response structure
       // Claude returns: { content: [{ type: 'text', text: '...' }], ... }
       return {
         success: true,
-        content: message.content[0].text
+        content: message.content[0].text,
+        usage: {
+          input_tokens: message.usage.input_tokens,
+          output_tokens: message.usage.output_tokens,
+          total_tokens: message.usage.input_tokens + message.usage.output_tokens
+        }
       };
     } catch (error) {
       // Log full error for debugging but only return message to client
