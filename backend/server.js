@@ -79,16 +79,6 @@ app.post('/api/generate-note', async (req, res) => {
   }
 });
 
-// Test Claude integration Endpoint
-app.post('/api/test-claude', async (req, res) => {
-  try {
-    const result = await claudeService.generateContent('Write a haiku about backend development');
-    res.json(result);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
 // ============================================
 // Claude Integration Test Endpoint
 // ============================================
